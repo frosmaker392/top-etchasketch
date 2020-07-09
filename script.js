@@ -2,11 +2,9 @@
 //with x rows, y columns, and cell width w (px)
 function generateGrid(x, y, w){
     //space between cells in px
-    const spacing = 5;
+    const spacing = 2;
     const gContainer = document.querySelector('.grid-container');
-    const containerWidth = (y - 1) * spacing + y * w;
 
-    gContainer.style.width = containerWidth;
     gContainer.setAttribute('style',
      `grid-template-columns: repeat(${x}, ${w + spacing}px);
       grid-template-rows: repeat(${y}, ${w + spacing}px)`);
@@ -21,4 +19,4 @@ function generateGrid(x, y, w){
     }
 }
 
-generateGrid(16, 16, 20);
+generateGrid(16, 16, 15);

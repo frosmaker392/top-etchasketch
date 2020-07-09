@@ -1,13 +1,15 @@
 .grid-container{
     display: grid;
-    background-color: rgb(226, 226, 226);
-
-    padding: 15px;
+    background-color: #e2e2e2;
+    padding: 10px;
+    margin: 0 auto;
+    width: max-content;
     border-radius: 10px;
 }
 
 .grid-cell{
-    background-color: aqua;
+    background-color: whitesmoke;
     justify-self: center;
     align-self: center;
+    border-radius: 3px;
 }
