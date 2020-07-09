@@ -1,3 +1,7 @@
+html{
+    background-color: rgb(240, 228, 216);
+}
+
 body, button{
     font-size: 14px;
     font-family: 'Fira Sans', sans-serif;
@@ -9,10 +13,30 @@ h1{
     margin: 10px;
 }
 
+footer{
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    text-align: center;
+    font-size: 0.95rem;
+}
+
 .header{
     width: max-content;
-    margin: 15px auto 25px auto;
+    margin: 15px auto 15px auto;
     padding: 10px;
+}
+
+.mode-btn{
+    width: 200px;
+    padding: 7px;
+}
+
+.draw-type-container{
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 10px;
 }
 
 .grid-container{
@@ -35,5 +59,12 @@ h1{
 }
 
 #generate-btn{
-    height: 40px;
+    display: block;
+    margin: 5px auto 20px auto;
+    padding: 17px;
+
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 7px;
 }
