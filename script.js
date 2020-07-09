@@ -1,24 +1,25 @@
-const gridCells = generateGrid(16, 16, 15);
+const gridCells = generateGrid(16, 400);
 
 //Generate a grid of divs within grid-container 
-//with x rows, y columns, and cell width w (px)
-//Returns an array of grid cells
-function generateGrid(x, y, w){
+//with x rows and columns, and total width of w px
+//Returns an array of grid-cells
+function generateGrid(x, w){
     //space between cells in px
     const spacing = 2;
     const gContainer = document.querySelector('.grid-container');
+    const widthPerCell = (w - (x - 1) * spacing) / x;
 
     let cellsArr = [];
 
     gContainer.setAttribute('style',
-     `grid-template-columns: repeat(${x}, ${w + spacing}px);
-      grid-template-rows: repeat(${y}, ${w + spacing}px)`);
+     `grid-template-columns: repeat(${x}, ${widthPerCell + spacing}px);
+      grid-template-rows: repeat(${x}, ${widthPerCell + spacing}px)`);
     
-    for(i = 0; i < x*y; i++){
+    for(i = 0; i < x*x; i++){
         const cell = document.createElement('div');
         cell.classList.add('grid-cell');
-        cell.style.width = w + 'px';
-        cell.style.height = w + 'px';
+        cell.style.width = widthPerCell + 'px';
+        cell.style.height = widthPerCell + 'px';
         cell.addEventListener('mouseover', cellOnHover);
 
         gContainer.appendChild(cell);
