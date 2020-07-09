@@ -8,6 +8,9 @@
 }
 
 .grid-cell{
+    transition-property: all;
+    transition-duration: 0.1s;
+
     background-color: whitesmoke;
     justify-self: center;
     align-self: center;
