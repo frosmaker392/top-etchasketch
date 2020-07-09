@@ -1,9 +1,17 @@
 const gridTotalWidth = 600;
 
+let drawMode = 0;
 let gridCells = generateGrid(16);
+
 const clearBtn = document.querySelector('#clear-btn');
+const normalBtn = document.querySelector('#normal-btn');
+const additiveBtn = document.querySelector('#additive-btn');
+const randomBtn = document.querySelector('#random-btn');
 
 clearBtn.addEventListener('click', generateNewGrid);
+normalBtn.addEventListener('click', () => {clearCells(); drawMode = 0});
+additiveBtn.addEventListener('click', () => {clearCells(); drawMode = 1});
+randomBtn.addEventListener('click', () => {clearCells(); drawMode = 2});
 
 //Generate a grid of divs within grid-container with x rows and columns
 //Returns an array of grid-cells
@@ -50,7 +58,7 @@ function generateNewGrid(){
 //Clears all the cells to the normal whitesmoke colour
 function clearCells(){
     gridCells.forEach(cell => {
-        cell.style.backgroundColor = 'whitesmoke';
+        cell.style.backgroundColor = '#f5f5f5';
     });
 }
 
@@ -64,6 +72,38 @@ function deleteAllCells(){
     gridCells = [];
 }
 
+//Returns a random colour (string) in the form of rgb(r, g, b)
+function getRandomColor(){
+    let rgb = [0, 0, 0];
+    for(i = 0; i < 3; i++){
+        const val = Math.floor(Math.random() * 256);
+        rgb[i] = val;
+    }
+
+    return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+}
+
+//Callback for each cell when hovered, changes color based on 
+//which drawMode is selected
 function cellOnHover(e){
-    e.target.style.backgroundColor = 'black';
+    //drawMode 0/default - change to black
+    //drawMode 1 - add 10% black to the color
+    //drawMode 2 - change to a random color
+    if(drawMode === 1){
+        const curColor = e.target.style.backgroundColor;
+        const rgb = curColor.match(/\d+/g);
+        const colorOffset = 255 * 10 / 100;
+
+        for(i = 0; i < 3; i++){
+            rgb[i] = Math.max(+rgb[i] - colorOffset, 0);
+        }
+        
+        e.target.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+    }
+    else if(drawMode === 2){
+        e.target.style.backgroundColor = getRandomColor();
+    }
+    else{
+        e.target.style.backgroundColor = 'black';
+    }
 }
