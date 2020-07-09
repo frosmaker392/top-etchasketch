@@ -3,19 +3,23 @@
     <head>
         <meta charset="utf-8">
         <link href="styles.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&family=Nanum+Pen+Script&display=swap" rel="stylesheet"> 
         <title>Etch-a-Sketch</title>
     </head>
     <body>
         <div class="header">
             <h1>Etch-a-Sketch</h1>
         </div>
-        <button id="clear-btn">Generate new etch grid</button>
+        <button id="generate-btn">Generate new etch grid</button>
         <div class="etch-type-container">
             <button id="normal-btn" title="Square changes to black each pass">Normal mode</button>
             <button id="additive-btn" title="Adds just a bit of black each pass">Additive mode</button>
             <button id="random-btn" title="Square changes to a random color">Random color mode</button>
         </div>
         <div class="grid-container"></div>
+        <footer>
+            <p id="copyright">&copy;2020 frosmaker@github.com</p>
+        </footer>
     </body>
     <script src="script.js"></script>
 </html>

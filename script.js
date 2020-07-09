@@ -3,7 +3,7 @@ const gridTotalWidth = 600;
 let drawMode = 0;
 let gridCells = generateGrid(16);
 
-const clearBtn = document.querySelector('#clear-btn');
+const clearBtn = document.querySelector('#generate-btn');
 const normalBtn = document.querySelector('#normal-btn');
 const additiveBtn = document.querySelector('#additive-btn');
 const randomBtn = document.querySelector('#random-btn');
@@ -43,12 +43,16 @@ function generateGrid(x){
 
 //Generates a new empty grid based on the user num via a prompt
 function generateNewGrid(){
-    let num;
-    num = parseInt(prompt("New grid resolution (squares per side, max. limit : 64)", 16));
+    let input = prompt("New grid resolution (squares per side, max. limit : 64)", 16);
+    let num = parseInt(input);
     
     //Rejects odd user input
     while(isNaN(num) || num > 64 || num < 2){
-        num = prompt("Invalid num, please try again. (Max. limit : 64)", 16);
+        if(input === null){
+            return;
+        }
+        input = prompt("Invalid num, please try again. (Max. limit : 64)", 16);
+        num = parseInt(input);
     }
 
     deleteAllCells();

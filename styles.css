@@ -1,3 +1,20 @@
+body, button{
+    font-size: 14px;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+h1{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 3rem;
+    margin: 10px;
+}
+
+.header{
+    width: max-content;
+    margin: 15px auto 25px auto;
+    padding: 10px;
+}
+
 .grid-container{
     display: grid;
     background-color: #e2e2e2;
@@ -15,4 +32,8 @@
     justify-self: center;
     align-self: center;
     border-radius: 15%;
+}
+
+#generate-btn{
+    height: 40px;
 }
