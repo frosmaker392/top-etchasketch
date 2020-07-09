@@ -1,4 +1,7 @@
 const gridCells = generateGrid(16, 400);
+const clearBtn = document.querySelector('#clear-btn');
+
+clearBtn.addEventListener('click', clearCells);
 
 //Generate a grid of divs within grid-container 
 //with x rows and columns, and total width of w px
@@ -25,6 +28,14 @@ function generateGrid(x, w){
         gContainer.appendChild(cell);
         cellsArr.push(cell);
     }
+
+    return cellsArr;
+}
+
+function clearCells(){
+    gridCells.forEach(cell => {
+        cell.style.backgroundColor = 'whitesmoke';
+    });
 }
 
 function cellOnHover(e){
