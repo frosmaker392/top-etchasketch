@@ -2,6 +2,7 @@ const gridTotalWidth = 600;
 
 let drawMode = 0;
 let gridCells = generateGrid(16);
+let selectedBtn;
 
 const clearBtn = document.querySelector('#generate-btn');
 const normalBtn = document.querySelector('#normal-btn');
@@ -9,9 +10,11 @@ const additiveBtn = document.querySelector('#additive-btn');
 const randomBtn = document.querySelector('#random-btn');
 
 clearBtn.addEventListener('click', generateNewGrid);
-normalBtn.addEventListener('click', () => {clearCells(); drawMode = 0});
-additiveBtn.addEventListener('click', () => {clearCells(); drawMode = 1});
-randomBtn.addEventListener('click', () => {clearCells(); drawMode = 2});
+normalBtn.addEventListener('click', (e) => {clearCells(); drawMode = 0, selectButton(e.target)});
+additiveBtn.addEventListener('click', (e) => {clearCells(); drawMode = 1, selectButton(e.target)});
+randomBtn.addEventListener('click', (e) => {clearCells(); drawMode = 2, selectButton(e.target)});
+
+selectButton(normalBtn);
 
 //Generate a grid of divs within grid-container with x rows and columns
 //Returns an array of grid-cells
@@ -110,4 +113,14 @@ function cellOnHover(e){
     else{
         e.target.style.backgroundColor = 'black';
     }
+}
+
+//Disables a button and assigns selectedButton to it
+function selectButton(btn){
+    if(selectedBtn !== undefined){
+        selectedBtn.disabled = false;
+    }
+    btn.disabled = true;
+
+    selectedBtn = btn;
 }
