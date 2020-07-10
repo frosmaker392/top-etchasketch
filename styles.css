@@ -11,6 +11,12 @@ h1{
     font-family: 'Nanum Pen Script', cursive;
     font-size: 3rem;
     margin: 10px;
+    color: rgb(58, 49, 38);
+}
+
+button{
+    transition-property: all;
+    transition-duration: 0.1s;
 }
 
 footer{
@@ -23,20 +29,37 @@ footer{
 
 .header{
     width: max-content;
-    margin: 15px auto 15px auto;
+    margin: 15px auto 5px auto;
     padding: 10px;
 }
 
 .mode-btn{
-    width: 200px;
-    padding: 7px;
+    width: 195px;
+    padding: 10px;
+
+    background-color: rgb(233, 208, 169);
+    border: 2px solid rgb(201, 175, 133);
+    border-radius: 20px;
+}
+
+.mode-btn:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.mode-btn:active{
+    transform: scale(0.97);
+}
+
+.mode-btn.selected{
+    background-color: rgb(212, 189, 149);
 }
 
 .draw-type-container{
     display: flex;
-    justify-content: center;
-
-    margin-bottom: 10px;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto 10px auto;
 }
 
 .grid-container{
@@ -60,11 +83,24 @@ footer{
 
 #generate-btn{
     display: block;
-    margin: 5px auto 20px auto;
-    padding: 17px;
+    margin: 0px auto 20px auto;
+    padding: 15px;
 
     font-weight: 500;
+    font-size: 1rem;
     letter-spacing: 0.5px;
-    border: 1px solid rgb(185, 185, 185);
-    border-radius: 7px;
+
+    background-color: rgb(255, 245, 235);
+    border: 2px solid rgb(214, 192, 167);
+    border-radius: 10px;
+}
+
+#generate-btn:hover{
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.04);
+}
+
+#generate-btn:active{
+    background-color: rgb(231, 222, 212);
+    transform: scale(0.97);
 }
